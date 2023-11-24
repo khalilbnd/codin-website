@@ -1,4 +1,5 @@
 const express = require('express');
+const http = require('http')
 const path = require('path')
 const notifier = require('node-notifier');
 
@@ -18,9 +19,9 @@ app.use(express.json());
 app.use(configRouter);
 app.use(authRouter);
 
+const server = http.createServer(app)
 
-
-app.listen(WEBSITE_PORT, () => {
+server.listen(WEBSITE_PORT, () => {
     notifier.notify({
 
         title: 'Codin',
