@@ -1,42 +1,36 @@
-const { Client } = require('pg');
+const mongoose = require('mongoose');
 
-require('dotenv').config();
+require('dotenv').config()
+ 
+class Database {
+  constructor() {
+    this._connect();
+  }
 
-const {DB_USER, DB_HOST, DB_NAME, DB_PASSWORD, DB_PORT} = process.env 
+  _connect() {
+    const { DB_HOST, DB_NAME } = process.env; // Replace with your MongoDB URI
+    mongoose.connect(`${DB_HOST}`, { useNewUrlParser: true, useUnifiedTopology: true});
 
-const dbInfo = {
-    user: DB_USER,
-    host: DB_HOST,
-    password: DB_PASSWORD,
-    port: DB_PORT
+    this._db = mongoose.connection;
+
+    // Event handlers
+    this._db.on('error', (err) => console.error(`MongoDB connection error: ${err}`));
+    this._db.once('open', () => console.log('Connected to MongoDB'));
+    this._db.on('disconnected', () => console.log('Disconnected from MongoDB'));
+
+    process.on('SIGINT', () => this._db.close(() => {
+        console.log('MongoDB connection closed');
+        process.exit(0);
+      }));
+  }
+
+  isConnected() {
+    return this._db.readyState === 1;
+  }
+
+  get connection() {
+    return this._db;
+  }
 }
 
-class Database extends Client {
-    constructor(config) {
-        super(config)
-        this.connect((err)=> { 
-            if (err) throw err;
-            console.log("Connected!");
-        });
-    }
-
-    async checkDBStructureState(){
-        const res = await this.query(`SELECT datname FROM pg_catalog.pg_database WHERE datname = '${DB_NAME}'`);
-
-    if (res.rowCount === 0) {
-        console.log(`${DB_NAME} database not found, creating it.`);
-        await this.query(`CREATE DATABASE "${DB_NAME}";`);
-        console.log(`created database ${DB_NAME}`);
-    } else {
-        console.log(`${DB_NAME} database exists.`);
-        }
-    }
-
-}
-
-
-
-
-
-
-module.exports = new Database(dbInfo);
+module.exports = new Database();
