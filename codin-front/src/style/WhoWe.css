@@ -1,0 +1,66 @@
+.Wcontent {
+    width: 100%;
+    height: auto;
+    color: white;
+}
+
+.content-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 3%;
+    text-align: center;
+}
+
+.content-container h1 {
+    font-size: 5rem;
+    margin-bottom: 5%;
+}
+
+.who {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left, .right {
+    background-image: url("../assets/OBJECTS.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.left {
+    font-size: 1.5rem;
+    text-align: left;
+    cursor: pointer;
+}
+
+
+
+.left p {
+    padding-bottom: 20px;
+    max-width: 80%;
+    transform: translateX(-300%);
+    transition: transform .6s ease-in-out;
+
+
+
+}
+
+.hovering p {
+    width: 100%;
+    transform: translateX(0);
+
+}
+
+
+
+.right img {
+    width: 55%;
+}
