@@ -5,7 +5,7 @@ import '../style/events.css'
 
 const Events = () => {
   return (
-    <div className="Events">
+    <div className="Events" id="Events">
       <div className="Events-container">
         <h1>Events ;</h1>
         <Editor/>

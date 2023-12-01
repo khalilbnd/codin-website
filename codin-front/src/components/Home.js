@@ -11,7 +11,7 @@ const Home = () => {
   };
 
   return (
-    <main className="main-content">
+    <main className="main-content" id="Home">
       <div className="main-container">
         <div className="discription">
           <h1>Més Que un Club !</h1>
