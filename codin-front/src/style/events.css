@@ -5,7 +5,6 @@
 
 .Events {
     width: 100%;
-    height: auto;
     padding: 2% 0;
 }
 
@@ -42,7 +41,7 @@
 
 
 .event-describe p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-left: 3rem;
     width: 60%;
 }
@@ -60,7 +59,7 @@
     justify-content: center;
 }
 .image img {
-    width: 55%;
+    width: 40%;
 }
 
 .left-e {

@@ -62,3 +62,25 @@
     background-color: #FF00D6;
     font-weight: bold;
 }
+
+@media (max-width: 768px) {
+    .main-container {
+        gap: 1rem;
+    }
+
+    .discription {
+        font-size: 1rem;
+    }
+
+    .discription h1 {
+        font-size: 3rem;
+    }
+
+    .discription p {
+        font-size: 1rem;
+    }
+
+    .main-container button {
+        width: 50%; /* Adjust as needed */
+    }
+}

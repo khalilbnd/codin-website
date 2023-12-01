@@ -16,7 +16,7 @@ const WhoAreWer = () => {
   };
   
   return (
-    <div className="Wcontent">
+    <div className="Wcontent" id="Who">
       <div className="content-container">
         <h1 >//Who we are ?</h1>
         <div className="who">

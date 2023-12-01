@@ -1,7 +1,7 @@
 
 import React from 'react';
 import MonacoEditor from 'react-monaco-editor';
-import '../style/editor.css'
+import '../style/editor.css';
 
 const Editor = ({ code, onChange }) => {
   // Monaco Editor options
@@ -31,7 +31,6 @@ const Editor = ({ code, onChange }) => {
     <div className="editor-container">
       <MonacoEditor
         language="html"
-        theme="vs-dark"
         value={code}
         options={options}
         onChange={onChange}
