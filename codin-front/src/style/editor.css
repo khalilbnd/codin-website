@@ -1,0 +1,13 @@
+.editor-container {
+    width: 50%;
+    height: 20vh;
+    position: relative;
+    top: -1000px;
+    opacity: 0;
+    animation: dropDownAnimation 0.7s forwards;
+}
+
+.custom-editor {
+    max-width: 800px;
+    border-radius: 15px;
+}
